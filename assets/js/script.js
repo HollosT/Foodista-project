@@ -66,15 +66,22 @@ function drawNav(currentPageId) {
     }
     navString += '</ul>'
     drawHtml('#navigation', navString)
-
 };
+
+
 function drawPage(pageId) {
     const page = findById(pageId);
-    const template = page.metaData.template;
+    let template = page.metaData.template;
     switch (template) {
         case 'page':
             drawTempalatePage(page);
             break;
+        case 'topLevelCategory':
+            drawTemplatetopLevelCategory(page);
+            break;
+        case 'subLevelCategory':
+            drawTemplateSubLevelCategory(page);
+                break;
     }
 };
 
@@ -83,6 +90,55 @@ function drawTempalatePage(page) {
         <h2>${page.content.header}</h2>
     `;
     drawHtml('#root', content);
+}
+
+function drawTemplatetopLevelCategory(page) {
+    const content = `
+        ${drawSubNav()}
+        <h2>${page.content.header}</h2>
+        
+    `;
+    drawHtml('#root', content);
+}
+
+function drawTemplateSubLevelCategory() {
+    let currentPageId = getPageIdFromUrl()
+
+    // for(let i = 0; i < data.subNav[i].subCategories.length; i++){
+    //     if(data.subNav[i].subCategories[i].id) {
+    //         const content = `
+    //             <h2>${data.subNav[i].subCategories[i].content}</h2>;
+    //         `;
+    //     }
+    // }
+    // drawHtml('#root', content);
+}
+
+function drawSubNav() {
+    let currentPageId = getPageIdFromUrl();
+    let subNavString = '<ul>';
+    
+    for(let i = 0; i < data.subNav.length; i++) {
+        if(data.subNav[i].metaData.visible) {
+            let activePage = '';
+            if(data.subNav[i].subId == currentPageId) {
+                let currentSubNav = data.subNav[i].subCategories;
+                for (let i = 0; i < currentSubNav.length; i++) {
+                    activePage = 'class="active"'
+                    subNavString += `
+                        <li ${activePage}>
+                            <a href="?pageId=${currentSubNav[i].id}">${currentSubNav[i].name}</a>
+                        </li>
+                `;
+            }
+            console.log(subNavString);
+            }
+            
+        }
+    }
+    subNavString += '</ul>'
+    return subNavString;
+
 }
 
 function drawHtml(selector, newContent) {

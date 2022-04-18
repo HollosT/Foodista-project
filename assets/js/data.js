@@ -27,19 +27,19 @@ const data = {
         "metaData": {
             "name": "International cuisine",
             "title": "International recipes",
-            "template": "page",
+            "template": "topLevelCategory",
             "visible": true
         },
         "content": {
             "header": 'International cuisine'
-        }
+        },
     },
     {
         "id": 3,
         "metaData": {
             "name": "Pasta",
             "title": "Pasta recipes",
-            "template": "page",
+            "template": "topLevelCategory",
             "visible": true,
         },
         "content": {
@@ -51,7 +51,7 @@ const data = {
         "metaData": {
             "name": "Seasonal",
             "title": "Seasonal recipes",
-            "template": "page",
+            "template": "topLevelCategory",
             "visible": true,
         },
         "content": {
@@ -63,7 +63,7 @@ const data = {
         "metaData": {
             "name": "Soup",
             "title": "Soup recipes",
-            "template": "page",
+            "template": "topLevelCategory",
             "visible": true,
         },
         "content": {
@@ -75,7 +75,7 @@ const data = {
         "metaData": {
             "name": "Guest host",
             "title": "Recipes for guest hosting",
-            "template": "page",
+            "template": "topLevelCategory",
             "visible": true,
         },
         "content": {
@@ -85,6 +85,19 @@ const data = {
     {
         "id": 7,
         "metaData": {
+            "name": "Dessert",
+            "title": "Recipes for Dessert",
+            "template": "topLevelCategory",
+            "visible": true,
+        },
+        "content": {
+            "header": 'Recipes for Dessert'
+        }
+    },
+
+    {
+        "id": 8,
+        "metaData": {
             "name": "Article",
             "title": "Articles",
             "template": "page",
@@ -93,5 +106,76 @@ const data = {
         "content": {
             "header": 'Articles'
         }
-    }]
-}
+    }],
+    "subNav": [
+        {
+            "subId": 2,
+            "metaData": {
+                "template": "subLevelCategory",
+                "visible": true
+            },
+            "subCategories":[ {
+                "id": 9,
+                "name": "Western Europe",
+                "content": "This a Western Dish"
+            },
+            {
+                "id": 10,
+                "name": "Eastern Europe",
+                "content": "This an Eastern Dish"
+            },
+            {   "id": 11,
+                "name": "Meat",
+                "content": "This a Meat Dish"
+            },
+            {   
+                "id": 12,
+                "name": "Fish",
+                "content": "This a Fish Dish "
+            }]
+         },
+        {
+            "subId": 6,
+            "metaData": {
+                "template": "subLevelCategory",
+                "visible": true
+            },
+            "subCategories":[{
+                "id": 13,
+                "name": "Meat",
+                "content": "This a Meat Dish"
+            },
+            {
+                "id": 14,
+                "name": "Fish",
+                "content": "This a Fish Dish"
+            },
+            {   
+                "id": 15,
+                "name": "Sweets",
+                "content": "This a Sweet Dish"
+            },
+            {   "id": 16,
+                "name": "Drinks",
+                "content": "This a Drink "
+            }
+        ]
+         },    
+        {
+            "subId": 7,
+            "metaData": {
+                "template": "subLevelCategory",
+                "visible": true
+            },
+            "subCategories": [{
+                "id": 17,
+                "name": "Quick",
+                "content": "This a Quick dessert dish"
+            },
+            {   "id": 18,
+                "name": "Special Occasions",
+                "content": "This a dessert for special occasions"
+            }]
+        }   
+
+]}
