@@ -116,7 +116,7 @@ function drawTemplateSubLevelCategory() {
 
 function drawSubNav() {
     let currentPageId = getPageIdFromUrl();
-    let subNavString = '<ul>';
+    let subNavString = '<ul class="sub-navigation">';
     
     for(let i = 0; i < data.subNav.length; i++) {
         if(data.subNav[i].metaData.visible) {

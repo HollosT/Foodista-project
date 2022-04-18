@@ -30,3 +30,16 @@
 #navigation ul li+li {
     margin-left: 3.5%;
 }
+
+.sub-navigation {
+    display: flex;
+    gap: 2rem;
+}
+
+.sub-navigation a {
+    text-decoration: none;
+}
+
+.sub-navigation li {
+    list-style: none;
+}
