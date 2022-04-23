@@ -5,9 +5,9 @@ const data = {
         "title": 'Super Food',
         "teaser": 'sHellosdfjkadnfkajsdfkadfnadfsafdfadsf',
     },
-    "recipes": [
+    "section": [
         {
-            "name": `` 
+            "title": 'International cuisine'
         }
     ]
 }
