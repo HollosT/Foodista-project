@@ -8,42 +8,50 @@ function getPosts() {
     
 });
 }
-getPosts();
 function getRecipeData(data) {
-    for (let i = 0; i < data.length; i++) {
-      let dataOfRecipes = data[i].acf;
-      console.log(dataOfRecipes);
-      drawHomePageSection(dataOfRecipes);
+    let recipes = []
+    for(let i = 0; i < data.length; i++) {
+        if(data[i].acf != -1) {
+            recipes.push(data[i].acf)
+        }
     }
-  }
+    console.log(recipes)
+    drawRecipeCard(recipes)
+    homePageSection(recipes)
+}
 
-function drawHomePageSection(data) {
-    // for (let i = 0; i < data[2]; i++) {
+function drawRecipeCard(recipes) {
+    for (let i =0; i < recipes.length; i++) {
+    let card = `
+        <article>
+        <a href="">
+            <h4>${recipes[i].introduction.name}</h4>
+            <img src="${recipes[i].introduction.image}" alt="">
+            <p>${recipes[i].introduction.teaser}</p>
+        </a>
+    </article>
+    `;
+    return card;
+}
+}
+
+function homePageSection(recipes) {
     let section = `
-        <section class="">
-        <h2></h2>
-            ${drawRecipeCard(data)}
+        <section>
+            <h2></h2>
+            ${drawRecipeCard(recipes)}
+            <a href=""></a>
         </section>
     `;
     drawHtml('main', section);
-// }
-}
+}  
 
-function drawRecipeCard(data) {
-    let article = `
-            <article>
-                <a href="">
-             <h4>${data.introduction.name}</h4>
-                <img src="${data.introduction.image}" alt="">
-                <p>${data.introduction.teaser}</p>
-            </a>
-            </article>
-        `;
-    return article;
-}
+getPosts();
 
 
 
+
+homePageSection()
 
 
 //Adding content to the Html
