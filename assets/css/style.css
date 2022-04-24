@@ -1,149 +1,167 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-size: 18px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
 }
 
-h1, h2, h3, h4, h5 {
-    font-family: 'Open Sans', sans-serif;
-    color: var(--dark-gray);
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Open Sans", sans-serif;
+  color: var(--dark-gray);
 }
 
 h1 {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
-h2 {
-    font-size: 1.5rem;
+h2, span {
+  font-size: 1.5rem;
 }
 
 p {
-    color: gray;
+  color: gray;
 }
 
 :root {
-    --light-yellow: #FFF1D4;
-    --yellow: #FFD686;
-    --brown: #CCAC6C;
-    --light-brown: #DAC395;
-    --dark-brown:#80786A;
-    --dark-gray: #5D5D5D;
-    --gray: #707070;
-    --white:##F9F9F9;
-
+  --light-yellow: #fff1d4;
+  --yellow: #ffd686;
+  --brown: #ccac6c;
+  --light-brown: #dac395;
+  --dark-brown: #80786a;
+  --dark-gray: #5d5d5d;
+  --gray: #707070;
+  --white: ##f9f9f9;
 }
 
 .btn {
-    background-color: var(--yellow);
-    color: var(--dark-gray);
-    padding: 0.5rem 0.8rem;
-    font-family:  'Open Sans', sans-serif;;
-    border-radius: 0.5rem;
-    width: fit-content;
-    font-weight: 400;
-    transition: all .3s ease-in-out;
+  background-color: var(--yellow);
+  color: var(--dark-gray);
+  padding: 0.5rem 0.8rem;
+  font-family: "Open Sans", sans-serif;
+  border-radius: 0.5rem;
+  width: fit-content;
+  font-weight: 400;
+  transition: all 0.3s ease-in-out;
 }
 
 .flex {
-    display: flex;
+  display: flex;
 }
 
 a {
-    display: inline-block;
-    color:#707070;
-    text-decoration: none;
+  display: inline-block;
+  color: #707070;
+  text-decoration: none;
 }
 
 /* nav */
 
 header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-nav  {
-    justify-content: space-between;
-    background-color: var(--light-yellow);
-    padding: 1rem 10rem;
-    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
-    
+nav {
+  justify-content: space-between;
+  background-color: var(--light-yellow);
+  padding: 1rem 10rem;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
 }
 
 nav > a {
-    align-self: center;
+  align-self: center;
 }
 
 header div {
-    gap: 1.5rem;
-    align-items: center;
+  gap: 1.5rem;
+  align-items: center;
 }
 
 /* hero img */
 
 .hero-img {
-    background-image: url(/assets/pictures/hero1.jpg);
-    background-size: cover;
-    background-position-y: 30%;
-    width: 100%;
-    height: 40vw;
-    flex-direction: column;
-    padding-top: 8rem;
-    gap: 2rem;
+  background-image: url(/assets/pictures/hero1.jpg);
+  background-size: cover;
+  background-position-y: 30%;
+  width: 100%;
+  height: 40vw;
+  flex-direction: column;
+  padding-top: 8rem;
+  gap: 2rem;
 }
-
-
-
 
 /* sections home page */
 
+h2 {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid var(--dark-gray);
+  line-height: 0.1em;
+  margin: 2rem;
+}
+
+h2 span {
+  background: #fff;
+  padding: 0 10px;
+}
+
+.pasta-section h2 span {
+    background: var(--light-brown)
+}
+
 img {
-    max-width: 20vw;
+  max-width: 20vw;
 }
 
 section {
-    padding: 2rem 10rem;
+  padding: 2rem 10rem;
 }
 
 section:first-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
-#international, #pasta {
-    justify-content: center;
-    gap: 2rem;
+#international,
+#pasta {
+  justify-content: center;
+  gap: 2rem;
 }
 
 article {
-    background-color: var(--light-yellow);
-    max-width: 20vw;
+  background-color: var(--light-yellow);
+  max-width: 20vw;
 }
 
 article h4 {
-    padding: 1.5rem 2rem
+  padding: 1.5rem 2rem;
 }
 
 article p {
-    font-size: 0.8rem;
-    padding: 0 2rem 1.5rem 2rem;
+  font-size: 0.8rem;
+  padding: 0 2rem 1.5rem 2rem;
 }
 
 .hero-img h2 {
-    text-align: center;
-    margin-bottom: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
-.international-section, .pasta-section {
-    flex-direction: column;
-    gap: 2rem;
-    align-items: center;
+.international-section,
+.pasta-section {
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
 }
 
 .pasta-section {
-    background-color: var(--light-brown)
+  background-color: var(--light-brown);
 }
 
 .pasta-section article {
-    background-color: white;
+  background-color: white;
 }
