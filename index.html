@@ -1,41 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Foodista</title>
-    <link href="assets/css/style.css" rel="stylesheet">
-    <script src="assets/js/data.js" ></script>
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <script src="assets/js/data.js"></script>
     <script src="assets/js/script.js" defer></script>
-</head>
-<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
+        </style>
+  </head>
+  <body>
+
     <header>
-        <nav id="navigation">
-            <a href="" class="home-nav">Super food</a>
-            <a href="">International Cuisine</a>
-            <a href="">Pasta</a>
-            <a href="">Seasonal</a>
-            <a href="">Soup</a>
-            <a href="">Guset hosting</a>
-            <a href="">Desserts</a>
-            <a href="">Article</a>
-        </nav>
+      <nav class="navigation, flex">
+        <a href="" class="home-nav">Super<br>Food</a>
+        <div class="flex">
+          <a href="">International Cuisine</a>
+          <a href="">Pasta</a>
+          <a href="">Seasonal</a>
+          <a href="">Soup</a>
+          <a href="">Guest Hosting</a>
+          <a href="">Desserts</a>
+          <a href="">Article</a>
+        </div>
+      </nav>
     </header>
+
     <main>
-        <section>
-            <h1></h1>
-            <p></p>
-            <a href=""></a>
-        </section>
-        <section id="international">
-            <h2>International</h2>
-        </section>
-        <section id="pasta">
-            <h2>Pasta</h2>
-        </section>
-        
+
+      <section class="hero-img flex">
+        <h1>Welcome on SuperFoods.<br>Unleash the best cook in you<br>with our recipes!</h1>
+        <p>It is a long established fact that a reader will be distracted by the readable<br> content of a page when looking at its layout. </p>
+        <a href="" class="btn">Take me to recipes</a>
+      </section>
+
+      <section>
+        <h2>Experience international cuisine</h2>
+        <div id="international" class="flex"></div>
+      </section>
+
+      <section>
+        <h2>Explore our pasta-bilities</h2>
+        <div id="pasta" class="flex"></div>
+      </section>
     </main>
+
     <footer id="footer"></footer>
-</body>
+  </body>
 </html>

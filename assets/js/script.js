@@ -81,7 +81,7 @@ function drawInternationalSection(recipes) {
                         </a>
                     </article>
                     `;
-                    drawHtml('section#international', cardInt)
+                    drawHtml('div#international', cardInt)
                 }    
 
     }
@@ -98,7 +98,7 @@ function drawInternationalSection(recipes) {
                             </a>
                         </article>
                         `;
-                        drawHtml('section#pasta', cardPasta)
+                        drawHtml('div#pasta', cardPasta)
                     }     
                 }
 
