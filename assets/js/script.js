@@ -98,8 +98,8 @@ function drawInternationalSection(recipes) {
                             </a>
                         </article>
                         `;
+                        drawHtml('section#pasta', cardPasta)
                     }     
-                    drawHtml('section#pasta', cardPasta)
                 }
 
 getPosts();
