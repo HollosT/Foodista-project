@@ -75,8 +75,8 @@ function drawInternationalSection(recipes) {
                 let cardInt = `
                         <article>
                         <a href="">
-                            <h4>${recipes[i].introduction.name}</h4>
                             <img src="${recipes[i].introduction.image}" alt="">
+                            <h4>${recipes[i].introduction.name}</h4>
                             <p>${recipes[i].introduction.teaser}</p>
                         </a>
                     </article>
@@ -92,8 +92,8 @@ function drawInternationalSection(recipes) {
                    let cardPasta = `
                             <article>
                             <a href="">
-                                <h4>${recipes[i].introduction.name}</h4>
                                 <img src="${recipes[i].introduction.image}" alt="">
+                                <h4>${recipes[i].introduction.name}</h4>
                                 <p>${recipes[i].introduction.teaser}</p>
                             </a>
                         </article>
