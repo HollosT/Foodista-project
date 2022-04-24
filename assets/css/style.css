@@ -111,6 +111,7 @@ section {
 
 article {
     background-color: var(--light-yellow);
+    max-width: 20vw;
 }
 article p {
     font-size: 0.8rem;
