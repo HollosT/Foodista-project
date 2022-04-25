@@ -73,7 +73,7 @@ nav {
   box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
 }
 
-nav > a {
+nav>a {
   align-self: center;
 }
 
@@ -111,7 +111,7 @@ h2 span {
 }
 
 .pasta-section h2 span {
-    background: var(--light-brown)
+  background: var(--light-brown)
 }
 
 img {
@@ -127,7 +127,8 @@ section:first-child {
 }
 
 #international,
-#pasta {
+#pasta,
+#article {
   justify-content: center;
   gap: 2rem;
 }
@@ -135,6 +136,20 @@ section:first-child {
 article {
   background-color: var(--light-yellow);
   max-width: 20vw;
+}
+
+article:hover {
+  transform: scale(1.02);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, .3);
+  transition: .5s ease-in-out;
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  -ms-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  -webkit-transform: scale(1.02);
+  -moz-transform: scale(1.02);
+  -ms-transform: scale(1.02);
+  -o-transform: scale(1.02);
 }
 
 article h4 {
