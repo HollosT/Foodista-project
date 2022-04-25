@@ -186,3 +186,26 @@ article p {
 .active {
   color: blue;
 }
+
+footer {
+  background-color: var(--dark-brown);
+  color: var(--light-yellow);
+  padding: 0.5rem 2rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+footer a {
+  color: var(--light-yellow);
+}
+
+i {
+  color: white;
+  font-size: 1rem;
+  font-family: fontawesome;
+  font-style: normal;
+}
+
+footer div {
+  gap: 0.5rem;
+}
