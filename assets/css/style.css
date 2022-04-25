@@ -209,3 +209,7 @@ i {
 footer div {
   gap: 0.5rem;
 }
+
+section > img {
+  max-width: 3rem;
+}
