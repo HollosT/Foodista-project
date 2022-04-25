@@ -18,7 +18,8 @@ h1 {
   font-size: 2rem;
 }
 
-h2, span {
+h2,
+span {
   font-size: 1.5rem;
 }
 
@@ -52,6 +53,10 @@ p {
   display: flex;
 }
 
+.flex-column {
+  flex-direction: column;
+}
+
 a {
   display: inline-block;
   color: #707070;
@@ -73,7 +78,7 @@ nav {
   box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
 }
 
-nav>a {
+nav > a {
   align-self: center;
 }
 
@@ -111,7 +116,7 @@ h2 span {
 }
 
 .pasta-section h2 span {
-  background: var(--light-brown)
+  background: var(--light-brown);
 }
 
 img {
@@ -141,12 +146,12 @@ article {
 
 article:hover {
   transform: scale(1.02);
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, .3);
-  transition: .5s ease-in-out;
-  -webkit-transition: .5s ease-in-out;
-  -moz-transition: .5s ease-in-out;
-  -ms-transition: .5s ease-in-out;
-  -o-transition: .5s ease-in-out;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  transition: 0.5s ease-in-out;
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -ms-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
   -webkit-transform: scale(1.02);
   -moz-transform: scale(1.02);
   -ms-transform: scale(1.02);
@@ -183,14 +188,10 @@ article p {
   background-color: white;
 }
 
-.active {
-  color: blue;
-}
-
 footer {
   background-color: var(--dark-brown);
   color: var(--light-yellow);
-  padding: 0.5rem 2rem;
+  padding: 0.5rem 10rem;
   align-items: center;
   justify-content: space-between;
 }
@@ -212,4 +213,56 @@ footer div {
 
 section > img {
   max-width: 3rem;
+}
+
+.article {
+  gap: 2rem;
+}
+
+.article-content {
+  max-width: 20vw;
+  gap: 2rem;
+}
+
+.article-img {
+  width: 20rem;
+  height: 20rem;
+  object-fit: cover;
+  box-shadow: -20px -15px 0 2px #ffd786;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.sub-nav {
+  background-color: white;
+  box-shadow: none;
+}
+
+.sub-nav ul{
+  gap: 1rem;
+  padding-top: 2rem;
+
+}
+
+.btn-sub-nav {
+  font-size: 0.6rem;
+  background-color: var(--dark-brown);
+  color: var(--light-yellow);
+  font-weight: 400;
+}
+
+#active {
+  color: var(--dark-brown);
+  background-color: var(--light-yellow);
+  border: 1px solid var(--dark-brown);
+}
+
+.active-nav {
+  border-bottom: 1px solid var(--dark-gray);
+  font-weight: bolder;
+  /* color: black; */
+
 }

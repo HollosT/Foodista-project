@@ -103,15 +103,15 @@ function drawSite(pageId) {
 }
 // Drawing the Sub-navigation
 function drawSubNav(currentPageId) {
-    let navString = '<ul>'
+    let navString = '<ul class="flex">'
     for(let i = 0; i < pages.length; i++) {
         if(pages[i].metaData.visible) {
             let activePage = '';
             if(pages[i].id == currentPageId) {
-                activePage = 'class="active"';
+                activePage = 'id="active"';
             }
             navString += `
-                <a href="?pageId=${pages[i].id}" ${activePage}>${pages[i].metaData.name}</a>
+                <a class="btn btn-sub-nav" href="?pageId=${pages[i].id}" ${activePage}>${pages[i].metaData.name}</a>
             `
         }
     }
@@ -121,10 +121,7 @@ function drawSubNav(currentPageId) {
 // Displaying the content on each pages
 function drawPage(pageId) {
     const page = findPageById(pageId);
-    const content= `
-        <h2>${page.content.header}</h2>
-    `;
-    drawHtml('#recipes-placeHolder', content)
+   
     const id = page.id;
     switch(id) {
         case 1:

@@ -1,112 +1,108 @@
 // Calling the International recipes
 function getInternationalRecipes() {
-    fetch('https://marekfurik.com/wp-json/wp/v2/posts?&tags=9')
+  fetch("https://marekfurik.com/wp-json/wp/v2/posts?&tags=9")
     .then((response) => response.json())
     .then((data) => {
-        //   Looping through the posts to find all the ACF of the recipes and putting them all in an array
-            let recipes = []
-            for(let i = 0; i < data.length; i++) {
-             if(data[i].acf != -1) {
-                    recipes.push(data[i].acf)
-                }
-        } 
+      //   Looping through the posts to find all the ACF of the recipes and putting them all in an array
+      let recipes = [];
+      for (let i = 0; i < data.length; i++) {
+        if (data[i].acf != -1) {
+          recipes.push(data[i].acf);
+        }
+      }
 
-            drawInternationalSection(recipes)
-            console.log(recipes);
-        });
-         
+      drawInternationalSection(recipes);
+      console.log(recipes);
+    });
 }
 getInternationalRecipes();
 
 // Drawing International Section on the homepage
 function drawInternationalSection(recipes) {
-    for (let i =0; i < 3; i++) {
-        let cardInt = `
+  for (let i = 0; i < 3; i++) {
+    let cardInt = `
         <article>
-        <a href="">
-        <img src="${recipes[i].introduction.image}" alt="">
-        <h4>${recipes[i].introduction.name}</h4>
-        <p>${recipes[i].introduction.teaser}</p>
-        </a>
+            <a href="">
+                <img class="recipe-img" src="${recipes[i].introduction.image}" alt="">
+                <h4>${recipes[i].introduction.name}</h4>
+                <p>${recipes[i].introduction.teaser}</p>
+            </a>
         </article>
         `;
-        drawHtml('div#international', cardInt)
-    }    
-
+    drawHtml("div#international", cardInt);
+  }
 }
 
 // Calling the Pasta recipes
 function getPastaRecipes() {
-    fetch('https://marekfurik.com/wp-json/wp/v2/posts?&tags=10')
+  fetch("https://marekfurik.com/wp-json/wp/v2/posts?&tags=10")
     .then((response) => response.json())
     .then((data) => {
-        //   Looping through the posts to find all the ACF of the recipes and putting them all in an array
-            let recipes = []
-            for(let i = 0; i < data.length; i++) {
-             if(data[i].acf != -1) {
-                    recipes.push(data[i].acf)
-                }
-        } 
-            drawPastaSection(recipes)
-            console.log(recipes);
-        });
-         
+      //   Looping through the posts to find all the ACF of the recipes and putting them all in an array
+      let recipes = [];
+      for (let i = 0; i < data.length; i++) {
+        if (data[i].acf != -1) {
+          recipes.push(data[i].acf);
+        }
+      }
+      drawPastaSection(recipes);
+      console.log(recipes);
+    });
 }
-getPastaRecipes()
+getPastaRecipes();
 
 // Drawing Pasta Section on the homepage
 function drawPastaSection(recipes) {
-    for (let i =0; i <3; i++) {
-        let cardPasta = `
+  for (let i = 0; i < 3; i++) {
+    let cardPasta = `
         <article>
             <a href="">
-                <img src="${recipes[i].introduction.image}" alt="">
+                <img class="recipe-img" src="${recipes[i].introduction.image}" alt="">
                 <h4>${recipes[i].introduction.name}</h4>
                 <p>${recipes[i].introduction.teaser}</p>
             </a>
         </article>
                         `;
-    drawHtml('div#pasta', cardPasta)
-    }     
+    drawHtml("div#pasta", cardPasta);
+  }
 }
 
 // Calling the Articles
 function getArticle() {
-    fetch('https://marekfurik.com/wp-json/wp/v2/posts?categories=25')
+  fetch("https://marekfurik.com/wp-json/wp/v2/posts?categories=25")
     .then((response) => response.json())
     .then((data) => {
-        //   Looping through the posts to find all the ACF of the recipes and putting them all in an array
-            let articles = []
-            for(let i = 0; i < data.length; i++) {
-             if(data[i].acf != -1) {
-                    articles.push(data[i].acf)
-                }
-        } 
-            drawArticleSection(articles)
-            console.log(articles);
-        });
-         
+      //   Looping through the posts to find all the ACF of the recipes and putting them all in an array
+      let articles = [];
+      for (let i = 0; i < data.length; i++) {
+        if (data[i].acf != -1) {
+          articles.push(data[i].acf);
+        }
+      }
+      drawArticleSection(articles);
+      console.log(articles);
+    });
 }
-getArticle()
+getArticle();
 
 // Drawing Article Section on the homepage
 function drawArticleSection(articles) {
-    for (let i =0; i <2; i++) {
-        let articleCard = `
-        <article>
-            <a href="">
-                <img src="${articles[i].introduction.image}" alt="">
-                <h4>${articles[i].introduction.name}</h4>
-                <p>${articles[i].introduction.teaser}</p>
-            </a>
-        </article>
+  let articleCard = `
+        
+            <div>
+                <img class="article-img" src="${articles[1].introduction.image}" alt="">
+            </div>
+
+            <div class="flex flex-column article-content">
+                <h3>${articles[1].introduction.name}</h3>
+                <p>${articles[1].introduction.teaser}</p>
+                <a href="" class="btn">All in this category</a>
+            </div>
+        
         `;
-    drawHtml('div#article', articleCard)
-    }     
+  drawHtml("div#article", articleCard);
 }
 //Adding content to the Html
 function drawHtml(selector, newContent) {
-    document.querySelector(selector).innerHTML += newContent;
+  document.querySelector(selector).innerHTML += newContent;
 }
-
-
