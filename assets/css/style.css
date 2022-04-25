@@ -85,7 +85,7 @@ header div {
 /* hero img */
 
 .hero-img {
-  background-image: url(/assets/pictures/hero1.jpg);
+  background-image: url(../pictures/hero1.jpg);
   background-size: cover;
   background-position-y: 30%;
   width: 100%;
