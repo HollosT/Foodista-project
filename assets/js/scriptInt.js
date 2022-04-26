@@ -1,6 +1,6 @@
 // Data for the Sub-pages
 const pages = [
-    {"id": 1,
+    {   "id": 9,
         "metaData": {
             "name": "All",
             "title": "All International recipes - Super Food",
@@ -12,7 +12,7 @@ const pages = [
             "header": "All international recipes"
         }
     },
-    {"id": 2,
+    {   "id": 15,
         "metaData": {
             "name": "Western Europe",
             "title": "Western Europe - Super Food",
@@ -23,7 +23,7 @@ const pages = [
             "header": "Western Europe"
         }
     },
-    {"id": 3,
+    {   "id": 16,
         "metaData": {
             "name": "Eastern Europe",
             "title": "Eastern Europe - Super Food",
@@ -34,7 +34,7 @@ const pages = [
             "header": "Eastern Europe"
         }
     },
-    {"id": 4,
+    {   "id": 17,
         "metaData": {
             "name": "Meat",
             "title": "Meat - Super Food",
@@ -45,7 +45,7 @@ const pages = [
             "header": "Meat dishes"
         }
     },
-    {"id": 5,
+    {   "id": 18,
         "metaData": {
             "name": "Fish",
             "title": "Meat - Super Food",
@@ -62,7 +62,7 @@ const pages = [
 // Getting pageId from th Url
 // It is based on Dan Høegh  Sem 2, theme 2 - API 1 lecture
 let pageId = getPageIdFromUrl();
-drawSite(pageId);
+drawSite(pageId)
 
 // Selecting and seperating the pageId from the other parameters in the Url
 function getPageIdFromUrl() {
@@ -89,6 +89,7 @@ function getPageIdFromUrl() {
 }
 // Finding the default page by the root property
 function drawSite(pageId) {
+    console.log(pageId)
     if (pageId == 0) {
         for(let i = 0; i < pages.length; i++) {
             if(pages[i].metaData.rootPage == true) {
@@ -96,10 +97,13 @@ function drawSite(pageId) {
                 break;
             }
         }
+    } if(pageId >= 100) {
+        getRecipeById(pageId);
     }
+    // Calling the recipes by the pageId
+    getRecipesByTags(pageId)
     console.log(pageId);
-    drawSubNav(pageId);
-    drawPage(pageId)
+    drawSubNav(pageId)
 }
 // Drawing the Sub-navigation
 function drawSubNav(currentPageId) {
@@ -118,71 +122,37 @@ function drawSubNav(currentPageId) {
     navString += '</ul>'
     drawHtml('#sub-nav', navString);
 }
-// Displaying the content on each pages
-function drawPage(pageId) {
-    const page = findPageById(pageId);
-   
-    const id = page.id;
-    switch(id) {
-        case 1:
-            getRecipesByTags(9);
-            break;
-        case 2:
-            getRecipesByTags(15);
-            break;
-        case 3:
-            getRecipesByTags(16);
-            break;
-        case 4:
-            getRecipesByTags(17);
-            break;
-        case 5:
-            getRecipesByTags(18);
-            break;
-    }
 
-}
-
-
-//Testing whether the pageId from the Url is the same as in the data
-function findPageById(pageId) {
-    let page;
-    for(let i = 0; i < pages.length; i++) {
-        if(pages[i].id == pageId) {
-            page = pages[i]
-            break;
-        }
-    }
-    return page;
-}
-
-// calling the Recipe tags
+// calling the Recipe by tags
 function getRecipesByTags(tagNumber) {
     fetch(`https://marekfurik.com/wp-json/wp/v2/posts?&tags=${tagNumber}`)
     .then((response) => response.json())
     .then((data) => {
-        //   Looping through the posts to find all the ACF of the recipes and putting them all in an array
-            let recipes = []
-            for(let i = 0; i < data.length; i++) {
-             if(data[i].acf != -1) {
-                    recipes.push(data[i].acf)
-                }
-        } 
-            drawRecipes(recipes)
-            console.log(recipes);
+        console.log(data);
+            drawRecipes(data)
         });
          
 }
 
-function drawRecipes(recipes) {
+// calling the Recipe by Id
+function getRecipeById(pageId) {
+    fetch(`https://marekfurik.com/wp-json/wp/v2/posts/${pageId}`)
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data);
+            drawRecipePage(data)
+        });
+         
+}
+function drawRecipes(data) {
     let content = ''
-    for (let i =0; i < recipes.length; i++) {
+    for (let i =0; i < data.length; i++) {
         content += `
         <article>
-        <a href="">
-        <img src="${recipes[i].introduction.image}" alt="">
-        <h4>${recipes[i].introduction.name}</h4>
-        <p>${recipes[i].introduction.teaser}</p>
+        <a href="?pageId=${data[i].id}">
+        <img src="${data[i].acf.introduction.image}" alt="">
+        <h4>${data[i].acf.introduction.name}</h4>
+        <p>${data[i].acf.introduction.teaser}</p>
         </a>
         </article>
         `;
@@ -190,8 +160,11 @@ function drawRecipes(recipes) {
     }    
 }
 
+function drawRecipePage(data) {
+    const content = ''
 
-// 
+}
+
 function drawHtml(elementId, newContent) {
     document.querySelector(elementId).innerHTML = newContent;
 }

@@ -106,3 +106,4 @@ function drawArticleSection(articles) {
 function drawHtml(selector, newContent) {
   document.querySelector(selector).innerHTML += newContent;
 }
+
