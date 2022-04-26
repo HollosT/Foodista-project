@@ -136,6 +136,7 @@ function getRecipesByTags(tagNumber) {
 
 // calling the Recipe by Id
 function getRecipeById(pageId) {
+    console.log(pageId);
     fetch(`https://marekfurik.com/wp-json/wp/v2/posts/${pageId}`)
     .then((response) => response.json())
     .then((data) => {
@@ -161,10 +162,85 @@ function drawRecipes(data) {
 }
 
 function drawRecipePage(data) {
-    const content = ''
+    const recipe = data.acf;
+    const content = `
+      <h1>${recipe.introduction.name}</h1>
+      <a href="${recipe.metadata.link_for_creator}" target="_blank"><cite>Author:${recipe.metadata.author}</cite></a>
+      <div>
+        <img src="${recipe.introduction.image}" alt="${recipe.introduction.name}" />
+        <article>
+          <h4>About</h4>
+          <p>${recipe.metadata.about}</p>
+
+          <h4>Yield</h4>
+          <p>${recipe.metadata.portion}</p>
+        </article>
+
+        <div class="directons-recipe flex">
+          <h2><span>Directions</span></h2>
+
+          <div class="ingredients flex">
+            <table>
+              <h3>Ingredients</h3>
+              <ul>
+                ${ingredients(data)}
+              </ul>
+            </table>
+
+            <p>Do you like this recipe? Share it!</p>
+            <div class="flex">
+              <i class="fa-brands fa-twitter"></i>
+              <i class="fa-brands fa-facebook"></i>
+              <i class="fa-brands fa-instagram"></i>
+            </div>
+          </div>
+
+          <div class="steps flex">
+            ${steps(data)}
+          </div>
+        </div>
+        <a href="" class="btn">Back to the category</a>
+      </div>
+    `;
+    drawHtml('#recipes-placeHolder', content)
 
 }
 
+function ingredients(data) {
+    const ingredientsItem = Object.values(data.acf.ingredients);
+    console.log(ingredientsItem);
+    // removing the undefined element
+
+    let list;
+    for(let i = 0; i < ingredientsItem.length; i ++){
+        if (ingredientsItem[i] == undefined || ingredientsItem[i]== '') {
+            continue;
+        }
+        else {list += `
+            <li>${ingredientsItem[i]}</li>
+        `
+        }
+    }
+    return list;
+};
+
+function steps(data) {
+    let steps;
+    const stepsItem = Object.values(data.acf.preparation);
+    console.log(stepsItem);
+    for( let i = 0; i < stepsItem.length; i++) {
+        if(stepsItem[i] == undefined || stepsItem[i]== '') {
+            continue;
+        }
+   steps += `
+        <h3>Step ${[i]}</h3>
+        <p>${stepsItem[i]}</p>
+        <hr />
+    `  
+    }  
+
+    return steps;
+}
 function drawHtml(elementId, newContent) {
     document.querySelector(elementId).innerHTML = newContent;
 }
