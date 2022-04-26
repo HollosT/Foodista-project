@@ -96,7 +96,7 @@ function drawArticleSection(articles) {
             <div class="flex flex-column article-content">
                 <h3>${articles[1].introduction.name}</h3>
                 <p>${articles[1].introduction.teaser}</p>
-                <a href="" class="btn">All in this category</a>
+                <a href="" class="btn">All articles</a>
             </div>
         
         `;

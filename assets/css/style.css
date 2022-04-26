@@ -3,13 +3,19 @@
   margin: 0;
   padding: 0;
   font-size: 18px;
+  font-family: "Roboto", sans-serif;
+}
+
+p {
+  font-size: 0.8rem;
 }
 
 h1,
 h2,
 h3,
 h4,
-h5 {
+h5, 
+a {
   font-family: "Open Sans", sans-serif;
   color: var(--dark-gray);
 }
@@ -31,38 +37,47 @@ p {
   --dark-brown: #80786a;
   --dark-gray: #5d5d5d;
   --gray: #707070;
-  --white: ##f9f9f9;
+  --blue: #87B7FF;
+  --white: #f9f9f9;
+}
+
+a {
+  display: inline-block;
+  color: var(--gray);
+  text-decoration: none;
+  font-weight: 500;
 }
 
 .btn {
-  background-color: var(--yellow);
-  color: var(--dark-gray);
+  background-color: var(--blue);
+  color: var(--light-yellow);
   padding: 0.5rem 0.8rem;
   font-family: "Open Sans", sans-serif;
   border-radius: 0.5rem;
   width: fit-content;
-  /* font-weight: 400; */
+  font-weight: 400;
   box-shadow: 2px 4px 2px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
 }
+
 
 .btn:hover {
-  background-color: #fbca66;
-  color: var(--dark-gray);
+  background-color: #74acff;
 }
 
+.btn-sub-nav:hover {
+  background-color: var(--dark-brown);
+}
 .flex {
   display: flex;
 }
 
 .flex-column {
   flex-direction: column;
-}
-
-a {
-  display: inline-block;
-  color: #707070;
-  text-decoration: none;
 }
 
 /* nav */
@@ -75,7 +90,7 @@ header {
 
 nav {
   justify-content: space-between;
-  background-color: var(--light-yellow);
+  background-color: var(--yellow);
   padding: 1rem 10rem;
   box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
 }
@@ -84,8 +99,13 @@ nav > a {
   align-self: center;
 }
 
+header a:hover {
+  color: var(--dark-gray);
+  text-shadow: 1px 1px 1px var(--brown);
+}
+
 header div {
-  gap: 1.5rem;
+  gap: 2rem;
   align-items: center;
 }
 
@@ -100,6 +120,10 @@ header div {
   flex-direction: column;
   padding-top: 8rem;
   gap: 2rem;
+}
+
+.hero-img p {
+  font-size: 1rem;
 }
 
 /* sections home page */
@@ -165,8 +189,7 @@ article h4 {
   padding: 1.5rem 2rem;
 }
 
-article p {
-  font-size: 0.8rem;
+article p{
   padding: 0 2rem 1.5rem 2rem;
 }
 
@@ -226,6 +249,7 @@ section > img {
 .article-content {
   max-width: 20vw;
   gap: 2rem;
+  margin-top: 1.5rem;
 }
 
 .article-img {
@@ -270,3 +294,4 @@ section > img {
   /* color: black; */
 
 }
+
