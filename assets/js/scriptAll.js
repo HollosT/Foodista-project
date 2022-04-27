@@ -132,7 +132,7 @@ function drawRecipePage(data) {
     <div class="flex recipe-test">  
         <h1>${recipe.introduction.name}</h1>
       <a href="${recipe.metadata.link_for_creator}" target="_blank"><cite>Author:${recipe.metadata.author}</cite></a>
-      <div>
+      <div class="btn-container">
         <div class="single-recipe-div1 flex">
             <img src="${recipe.introduction.image}" alt="${recipe.introduction.name}" />
             <article>
@@ -143,17 +143,21 @@ function drawRecipePage(data) {
             <p>${recipe.metadata.portion}</p>
             </article>
         </div>
-
+        
         <div class="directons-recipe flex">
+            <img class="svg" src="assets/pictures/Asset-2.svg" />
             <h2><span>Directions</span></h2>
         </div>
         <div class="directions-main flex">
           <div class="ingredients flex">
             <table>
               <h3>Ingredients</h3>
-              <ul>
+              <ul class="flex">
                 ${ingredients(data)}
+                
               </ul>
+              
+              
             </table>
 
             <p>Do you like this recipe? Share it!</p>
@@ -168,8 +172,9 @@ function drawRecipePage(data) {
             ${steps(data)}
           </div>
         </div>
-        <a href="internationalCuisine.html" class="btn">Back to the category</a>
+        
       </div>
+      <a href="internationalCuisine.html" class="btn">Back to the category</a>
     </div>
     `;
     drawHtml('#recipes-placeHolder', content)
@@ -189,6 +194,7 @@ function ingredients(data) {
         else {
             list += `
             <li>${ingredientsItem[i]}</li>
+            <hr></hr>
         `
         }
     }

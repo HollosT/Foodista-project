@@ -14,7 +14,7 @@ h1,
 h2,
 h3,
 h4,
-h5, 
+h5,
 a {
   font-family: "Open Sans", sans-serif;
   color: var(--dark-gray);
@@ -23,7 +23,6 @@ a {
 h1 {
   font-size: 2rem;
 }
-
 
 p {
   color: gray;
@@ -37,7 +36,7 @@ p {
   --dark-brown: #80786a;
   --dark-gray: #5d5d5d;
   --gray: #707070;
-  --blue: #87B7FF;
+  --blue: #87b7ff;
   --white: #f9f9f9;
 }
 
@@ -63,7 +62,6 @@ a {
   -ms-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
 }
-
 
 .btn:hover {
   background-color: #74acff;
@@ -162,7 +160,7 @@ section:first-child {
 #pasta,
 #article,
 #recipes-placeHolder {
-  /* gap: 2rem; */
+  gap: 2rem;
   justify-content: center;
 }
 
@@ -189,7 +187,7 @@ article h4 {
   padding: 1.5rem 2rem;
 }
 
-article p{
+article p {
   padding: 0 2rem 1.5rem 2rem;
 }
 
@@ -238,8 +236,13 @@ footer div {
   gap: 0.5rem;
 }
 
-section > img {
+.svg  {
   max-width: 3rem;
+  text-align: center;
+}
+
+.directons-recipe img {
+  text-align: center;
 }
 
 .article {
@@ -269,10 +272,9 @@ section > img {
   box-shadow: none;
 }
 
-.sub-nav ul{
+.sub-nav ul {
   gap: 1rem;
   padding-top: 2rem;
-
 }
 
 .btn-sub-nav {
@@ -292,7 +294,6 @@ section > img {
   border-bottom: 1px solid var(--dark-gray);
   font-weight: bolder;
   /* color: black; */
-
 }
 
 .single-recipe-div1 {
@@ -300,31 +301,37 @@ section > img {
   justify-content: left;
 }
 
-.single-recipe-div1 img article {
+/* .single-recipe-div1 img article {
   width: 80rem;
   height: 25rem;
-}
+} */
 
 .recipe-test {
-  /* flex-direction: row; */
   display: inline-block;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 14rem;
+  align-items: center;
 }
 
 .directions-main {
   flex-direction: row;
-  justify-content: right;
+  justify-content: space-between;
   gap: 5vw;
 }
 
 .directons-recipe {
   flex-direction: column;
   margin-top: 10vw;
+  width: 100%;
 }
 
 .ingredients {
   flex-direction: column;
   background-color: var(--dark-brown);
   height: fit-content;
+  padding: 2rem;
 }
 
 .ingredients h3,
@@ -333,12 +340,39 @@ section > img {
   list-style: none;
 }
 
-.ingredients ul > li {
-  margin-bottom: 2vw;
+.ingredients h3 {
+  font-size: 1.5rem;
 }
+
+.ingredients li,
+.ingredients h3,
+.ingredients p {
+  color: white;
+}
+
+
+.ingredients ul {
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* .ingredients i {
+  font-family: font-awesome;
+  color: black;
+  font-size: 2rem;
+} */
 
 .steps {
   flex-direction: column;
   width: 50%;
   gap: 1vw;
+}
+
+.recipe-test article:hover {
+  transform: none;
+  -webkit-transform: none;
+  -moz-transform: none;
+  -ms-transform: none;
+  -o-transform: none;
+  box-shadow: none;
 }
