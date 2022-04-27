@@ -304,3 +304,7 @@ section > img {
   width: 40rem;
   height: 25rem;
 }
+
+.recipe-test {
+  flex-direction: row;
+}

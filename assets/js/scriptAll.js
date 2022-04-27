@@ -23,7 +23,7 @@ drawSite(pageId, international)
 //         case 'internationalCuisine':
 //             drawSite(pageId, international)
 //             break;
-    
+
 //         case 'pasta':
 //             drawSite(pageId, pasta)
 //             break;
@@ -33,22 +33,22 @@ drawSite(pageId, international)
 function getPageIdFromUrl() {
     let pageId = 0;
     const url = window.location.href;
-    if(url.indexOf('pageId') != -1) {
+    if (url.indexOf('pageId') != -1) {
         const urlSplit = url.split('?');
-        if(urlSplit[1].indexOf('&') == -1) {
+        if (urlSplit[1].indexOf('&') == -1) {
             const parameterSplit = urlSplit[1].split('=');
             pageId = parameterSplit[1];
         } else {
             const urlParameters = urlSplit[1].split('&');
-            for(let i = 0; i < urlParameters.length; i++) {
-                if (urlParameters[i].substring(0,6) == 'pageId') {
-                    const pageIdSplit =urlParameters[i].split('=');
+            for (let i = 0; i < urlParameters.length; i++) {
+                if (urlParameters[i].substring(0, 6) == 'pageId') {
+                    const pageIdSplit = urlParameters[i].split('=');
                     pageId = pageIdSplit[1];
                     break;
                 }
             }
         }
-    } 
+    }
     console.log(url);
     return pageId;
 }
@@ -56,13 +56,13 @@ function getPageIdFromUrl() {
 function drawSite(pageId, page) {
     console.log(pageId)
     if (pageId == 0) {
-        for(let i = 0; i < page.length; i++) {
-            if(page[i].metaData.rootPage == true) {
+        for (let i = 0; i < page.length; i++) {
+            if (page[i].metaData.rootPage == true) {
                 pageId = page[i].id;
                 break;
             }
         }
-    } if(pageId >= 100) {
+    } if (pageId >= 100) {
         getRecipeById(pageId);
     }
     // Calling the recipes by the pageId
@@ -73,10 +73,10 @@ function drawSite(pageId, page) {
 // Drawing the Sub-navigation
 function drawSubNav(currentPageId) {
     let navString = '<ul class="flex">'
-    for(let i = 0; i < international.length; i++) {
-        if(international[i].metaData.name) {
+    for (let i = 0; i < international.length; i++) {
+        if (international[i].metaData.name) {
             let activePage = '';
-            if(international[i].id == currentPageId) {
+            if (international[i].id == currentPageId) {
                 page = 'id="active"';
             }
             navString += `
@@ -91,28 +91,28 @@ function drawSubNav(currentPageId) {
 // calling the Recipe by tags
 function getRecipesByTags(tagNumber) {
     fetch(`https://marekfurik.com/wp-json/wp/v2/posts?&tags=${tagNumber}`)
-    .then((response) => response.json())
-    .then((data) => {
-        console.log(data);
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data);
             drawRecipes(data)
         });
-         
+
 }
 
 // calling the Recipe by Id
 function getRecipeById(pageId) {
     console.log(pageId);
     fetch(`https://marekfurik.com/wp-json/wp/v2/posts/${pageId}`)
-    .then((response) => response.json())
-    .then((data) => {
-        console.log(data);
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data);
             drawRecipePage(data)
         });
-         
+
 }
 function drawRecipes(data) {
     let content = ''
-    for (let i =0; i < data.length; i++) {
+    for (let i = 0; i < data.length; i++) {
         content += `
         <article>
         <a href="?pageId=${data[i].id}">
@@ -123,13 +123,14 @@ function drawRecipes(data) {
         </article>
         `;
         drawHtml('#recipes-placeHolder', content)
-    }    
+    }
 }
 
 function drawRecipePage(data) {
     const recipe = data.acf;
     const content = `
-      <h1>${recipe.introduction.name}</h1>
+    <div class="flex recipe-test">  
+        <h1>${recipe.introduction.name}</h1>
       <a href="${recipe.metadata.link_for_creator}" target="_blank"><cite>Author:${recipe.metadata.author}</cite></a>
       <div>
         <div class="single-recipe-div1 flex">
@@ -168,6 +169,7 @@ function drawRecipePage(data) {
         </div>
         <a href="internationalCuisine.html" class="btn">Back to the category</a>
       </div>
+    </div>
     `;
     drawHtml('#recipes-placeHolder', content)
 
@@ -179,11 +181,12 @@ function ingredients(data) {
     // removing the undefined element
 
     let list;
-    for(let i = 0; i < ingredientsItem.length; i ++){
-        if (ingredientsItem[i] == undefined || ingredientsItem[i]== '') {
+    for (let i = 0; i < ingredientsItem.length; i++) {
+        if (ingredientsItem[i] == undefined || ingredientsItem[i] == '') {
             continue;
         }
-        else {list += `
+        else {
+            list += `
             <li>${ingredientsItem[i]}</li>
         `
         }
@@ -195,16 +198,16 @@ function steps(data) {
     let steps;
     const stepsItem = Object.values(data.acf.preparation);
     console.log(stepsItem);
-    for( let i = 0; i < stepsItem.length; i++) {
-        if(stepsItem[i] == undefined || stepsItem[i]== '') {
+    for (let i = 0; i < stepsItem.length; i++) {
+        if (stepsItem[i] == undefined || stepsItem[i] == '') {
             continue;
         }
-   steps += `
+        steps += `
         <h3>Step ${[i + 1]}</h3>
         <p>${stepsItem[i]}</p>
         <hr />
-    `  
-    }  
+    `
+    }
 
     return steps;
 }
