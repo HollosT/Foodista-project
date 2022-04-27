@@ -167,21 +167,23 @@ function drawRecipePage(data) {
                     </ul>
                     </table>
             
-                <div class="share">
-                    <p>Do you like this recipe? Share it!</p>
-                    <div class="flex">
-                        <i class="fa-brands fa-twitter"></i>
-                        <i class="fa-brands fa-facebook"></i>
-                        <i class="fa-brands fa-instagram"></i>
                     </div>
-                </div>
-            </div>
-
-          <div class="steps flex">
-            ${steps(data)}
-          </div>
-        </div>
-        
+                    
+                    <div class="steps flex">
+                    ${steps(data)}
+                    </div>
+                    </div>
+                    
+                    <div class="share flex">
+                       <div class="share flex"> 
+                        <p>Do you like this recipe? Share it!</p>
+                       </div>
+                        <div class="recipe-icons flex">
+                            <i class="fa-brands fa-twitter"></i>
+                            <i class="fa-brands fa-facebook"></i>
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                    </div>
      
       <div class="img-wrapper"><a href="internationalCuisine.html" class="btn">Back to the category</a></div>
     </div>

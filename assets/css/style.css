@@ -350,6 +350,21 @@ footer div {
   gap: 1rem;
 }
 
+.share {
+  flex-direction: column;
+  text-align: right;
+}
+
+.recipe-icons {
+  margin-top: 1vw;
+  gap: 1vw;
+  justify-content: right;
+}
+
+.recipe-icons i {
+  color: var(--dark-brown);
+}
+
 .steps {
   flex-direction: column;
   width: 50%;
