@@ -1,40 +1,35 @@
 //Addressing all the navigation
 
+
 // Getting pageId from th Url
 // It is based on Dan Høegh  Sem 2, theme 2 - API 1 lecture
 // let pageName = getPageNameFromUrl()
 
 let pageId = getPageIdFromUrl();
-// let pageName = getPageNameFromUrl ()
-drawSite(pageId, international)
-// function getPageNameFromUrl () {
-//     let pageName ='';
-//     const url = window.location.href;
-//     const urlSplit = url.split('/');
-//     for (let i = 0; i < urlSplit.length; i++){
-//         if(urlSplit[i].substring(0,20) == 'html') {
-//             const parameterSplit = urlSplit[0].split('.');
-//             pageName = parameterSplit[0]
-//             break;
-//         }
-//     }
-//     console.log(urlSplit);
-//     return pageName;
-// }
-// console.log(pageName)
-// callTheNavNameFromURl()
-// function callTheNavNameFromURl() {
-//     const page = pageName;
-//     switch (page) {
-//         case 'internationalCuisine':
-//             drawSite(pageId, international)
-//             break;
+let pageName = getPageNameFromUrl ()
+function getPageNameFromUrl () {
 
-//         case 'pasta':
-//             drawSite(pageId, pasta)
-//             break;
-//     }
-// }
+    const url = window.location.href;
+    const urlSplit = url.split('/');
+    const pageNameSplit = urlSplit[urlSplit.length - 1].split('.');
+    const pageName = pageNameSplit[0]
+    return pageName;
+    
+}
+console.log(pageName);
+callTheNavNameFromURl()
+function callTheNavNameFromURl() {
+    const page = pageName;
+    switch (page) {
+        case 'internationalCuisine':
+            drawSite(pageId, international)
+            break;
+
+        case 'pasta':
+            drawSite(pageId, pasta)
+            break;
+    }
+}
 // Selecting and seperating the pageId from the other parameters in the Url
 function getPageIdFromUrl() {
     let pageId = 0;

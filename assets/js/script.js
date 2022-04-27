@@ -1,3 +1,6 @@
+
+
+
 // Calling the International recipes
 function getInternationalRecipes() {
   fetch("https://marekfurik.com/wp-json/wp/v2/posts?&tags=9")
