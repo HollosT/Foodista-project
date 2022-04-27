@@ -50,7 +50,7 @@ a {
 
 .btn {
   background-color: var(--blue);
-  color: var(--light-yellow);
+  color: #474747;
   padding: 0.5rem 0.8rem;
   font-family: "Open Sans", sans-serif;
   border-radius: 0.5rem;
@@ -295,3 +295,12 @@ section > img {
 
 }
 
+.single-recipe-div1 {
+  gap: 10rem;
+  justify-content: left;
+}
+
+.single-recipe-div1 img {
+  width: 40rem;
+  height: 25rem;
+}

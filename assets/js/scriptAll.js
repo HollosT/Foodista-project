@@ -132,14 +132,16 @@ function drawRecipePage(data) {
       <h1>${recipe.introduction.name}</h1>
       <a href="${recipe.metadata.link_for_creator}" target="_blank"><cite>Author:${recipe.metadata.author}</cite></a>
       <div>
-        <img src="${recipe.introduction.image}" alt="${recipe.introduction.name}" />
-        <article>
-          <h4>About</h4>
-          <p>${recipe.metadata.about}</p>
+        <div class="single-recipe-div1 flex">
+            <img src="${recipe.introduction.image}" alt="${recipe.introduction.name}" />
+            <article>
+            <h4>About</h4>
+            <p>${recipe.metadata.about}</p>
 
-          <h4>Yield</h4>
-          <p>${recipe.metadata.portion}</p>
-        </article>
+            <h4>Yield</h4>
+            <p>${recipe.metadata.portion}</p>
+            </article>
+        </div>
 
         <div class="directons-recipe flex">
           <h2><span>Directions</span></h2>
