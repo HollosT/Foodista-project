@@ -1,69 +1,32 @@
-// Data for the Sub-pages
-const pages = [
-    {   "id": 9,
-        "metaData": {
-            "name": "All",
-            "title": "All International recipes - Super Food",
-            "template": "sub-page",
-            "visible": true,
-            "rootPage": true
-        },
-        "content": {
-            "header": "All international recipes"
-        }
-    },
-    {   "id": 15,
-        "metaData": {
-            "name": "Western Europe",
-            "title": "Western Europe - Super Food",
-            "template": "sub-page",
-            "visible": true,
-        },
-        "content": {
-            "header": "Western Europe"
-        }
-    },
-    {   "id": 16,
-        "metaData": {
-            "name": "Eastern Europe",
-            "title": "Eastern Europe - Super Food",
-            "template": "sub-page",
-            "visible": true,
-        },
-        "content": {
-            "header": "Eastern Europe"
-        }
-    },
-    {   "id": 17,
-        "metaData": {
-            "name": "Meat",
-            "title": "Meat - Super Food",
-            "template": "sub-page",
-            "visible": true,
-        },
-        "content": {
-            "header": "Meat dishes"
-        }
-    },
-    {   "id": 18,
-        "metaData": {
-            "name": "Fish",
-            "title": "Meat - Super Food",
-            "template": "sub-page",
-            "visible": true,
-        },
-        "content": {
-            "header": "Fish dishes"
-        }
-    },
-]
-
+//Addressing all the navigation
 
 // Getting pageId from th Url
 // It is based on Dan Høegh  Sem 2, theme 2 - API 1 lecture
+let pageName = getPageNameFromUrl()
 let pageId = getPageIdFromUrl();
-drawSite(pageId)
-
+function getPageNameFromUrl () {
+    let pageName ='';
+    const url = window.location.href;
+    const urlSplit = url.split('Foodista-project/');
+    console.log(urlSplit);
+    const parameterSplit = urlSplit[1].split('.');
+    pageName = parameterSplit[0]
+    return pageName;
+}
+console.log(pageName)
+callTheNavNameFromURl()
+function callTheNavNameFromURl() {
+    const page = pageName;
+    switch (page) {
+        case 'internationalCuisine':
+            drawSite(pageId, international)
+            break;
+    
+        case 'pasta':
+            drawSite(pageId, pasta)
+            break;
+    }
+}
 // Selecting and seperating the pageId from the other parameters in the Url
 function getPageIdFromUrl() {
     let pageId = 0;
@@ -88,12 +51,12 @@ function getPageIdFromUrl() {
     return pageId;
 }
 // Finding the default page by the root property
-function drawSite(pageId) {
+function drawSite(pageId, page) {
     console.log(pageId)
     if (pageId == 0) {
-        for(let i = 0; i < pages.length; i++) {
-            if(pages[i].metaData.rootPage == true) {
-                pageId = pages[i].id;
+        for(let i = 0; i < page.length; i++) {
+            if(page[i].metaData.rootPage == true) {
+                pageId = page[i].id;
                 break;
             }
         }
@@ -101,21 +64,21 @@ function drawSite(pageId) {
         getRecipeById(pageId);
     }
     // Calling the recipes by the pageId
-    getRecipesByTags(pageId)
+    getRecipesByTags(pageId, page)
     console.log(pageId);
-    drawSubNav(pageId)
+    drawSubNav(pageId, page)
 }
 // Drawing the Sub-navigation
-function drawSubNav(currentPageId) {
+function drawSubNav(currentPageId, page) {
     let navString = '<ul class="flex">'
-    for(let i = 0; i < pages.length; i++) {
-        if(pages[i].metaData.visible) {
+    for(let i = 0; i < page.length; i++) {
+        if(page[i].metaData.name) {
             let activePage = '';
-            if(pages[i].id == currentPageId) {
-                activePage = 'id="active"';
+            if(page[i].id == currentPageId) {
+                page = 'id="active"';
             }
             navString += `
-                <a class="btn btn-sub-nav" href="?pageId=${pages[i].id}" ${activePage}>${pages[i].metaData.name}</a>
+                <a class="btn btn-sub-nav" href="?pageId=${page[i].id}" ${activePage}>${page[i].metaData.name}</a>
             `
         }
     }
@@ -199,7 +162,7 @@ function drawRecipePage(data) {
             ${steps(data)}
           </div>
         </div>
-        <a href="" class="btn">Back to the category</a>
+        <a href="internationalCuisine.html" class="btn">Back to the category</a>
       </div>
     `;
     drawHtml('#recipes-placeHolder', content)
@@ -233,7 +196,7 @@ function steps(data) {
             continue;
         }
    steps += `
-        <h3>Step ${[i]}</h3>
+        <h3>Step ${[i + 1]}</h3>
         <p>${stepsItem[i]}</p>
         <hr />
     `  
