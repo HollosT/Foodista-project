@@ -131,8 +131,8 @@ function drawRecipePage(data) {
     const content = `
     <div class="flex recipe-test">  
         <h1>${recipe.introduction.name}</h1>
-      <a href="${recipe.metadata.link_for_creator}" target="_blank"><cite>Author:${recipe.metadata.author}</cite></a>
-      <div class="btn-container">
+        <a href="${recipe.metadata.link_for_creator}" target="_blank"><cite>Author: ${recipe.metadata.author}</cite></a>
+
         <div class="single-recipe-div1 flex">
             <img src="${recipe.introduction.image}" alt="${recipe.introduction.name}" />
             <article>
@@ -144,37 +144,40 @@ function drawRecipePage(data) {
             </article>
         </div>
         
+        <div class="img-wrapper">
+        <img class="svg" src="assets/pictures/Asset-2.svg" />
+        </div>
         <div class="directons-recipe flex">
-            <img class="svg" src="assets/pictures/Asset-2.svg" />
             <h2><span>Directions</span></h2>
         </div>
+        
         <div class="directions-main flex">
-          <div class="ingredients flex">
-            <table>
-              <h3>Ingredients</h3>
-              <ul class="flex">
-                ${ingredients(data)}
+            <div class="ingredients flex">
                 
-              </ul>
-              
-              
-            </table>
-
-            <p>Do you like this recipe? Share it!</p>
-            <div class="flex">
-              <i class="fa-brands fa-twitter"></i>
-              <i class="fa-brands fa-facebook"></i>
-              <i class="fa-brands fa-instagram"></i>
+                    <table>
+                    <h3>Ingredients</h3>
+                    <ul class="flex">
+                        ${ingredients(data)}
+                    </ul>
+                    </table>
+            
+                <div class="share">
+                    <p>Do you like this recipe? Share it!</p>
+                    <div class="flex">
+                        <i class="fa-brands fa-twitter"></i>
+                        <i class="fa-brands fa-facebook"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                </div>
             </div>
-          </div>
 
           <div class="steps flex">
             ${steps(data)}
           </div>
         </div>
         
-      </div>
-      <a href="internationalCuisine.html" class="btn">Back to the category</a>
+     
+      <div class="img-wrapper"><a href="internationalCuisine.html" class="btn">Back to the category</a></div>
     </div>
     `;
     drawHtml('#recipes-placeHolder', content)
