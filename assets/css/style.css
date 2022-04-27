@@ -306,5 +306,6 @@ section > img {
 }
 
 .recipe-test {
-  flex-direction: row;
+  /* flex-direction: row; */
+  display: inline-block;
 }
