@@ -5,14 +5,20 @@
 // let pageName = getPageNameFromUrl()
 
 let pageId = getPageIdFromUrl();
+// let pageName = getPageNameFromUrl ()
 drawSite(pageId, international)
 // function getPageNameFromUrl () {
 //     let pageName ='';
 //     const url = window.location.href;
-//     const urlSplit = url.split('Foodista-project/');
+//     const urlSplit = url.split('/');
+//     for (let i = 0; i < urlSplit.length; i++){
+//         if(urlSplit[i].substring(0,20) == 'html') {
+//             const parameterSplit = urlSplit[0].split('.');
+//             pageName = parameterSplit[0]
+//             break;
+//         }
+//     }
 //     console.log(urlSplit);
-//     const parameterSplit = urlSplit[1].split('.');
-//     pageName = parameterSplit[0]
 //     return pageName;
 // }
 // console.log(pageName)
