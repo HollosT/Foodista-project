@@ -2,31 +2,33 @@
 
 // Getting pageId from th Url
 // It is based on Dan Høegh  Sem 2, theme 2 - API 1 lecture
-let pageName = getPageNameFromUrl()
+// let pageName = getPageNameFromUrl()
+
 let pageId = getPageIdFromUrl();
-function getPageNameFromUrl () {
-    let pageName ='';
-    const url = window.location.href;
-    const urlSplit = url.split('Foodista-project/');
-    console.log(urlSplit);
-    const parameterSplit = urlSplit[1].split('.');
-    pageName = parameterSplit[0]
-    return pageName;
-}
-console.log(pageName)
-callTheNavNameFromURl()
-function callTheNavNameFromURl() {
-    const page = pageName;
-    switch (page) {
-        case 'internationalCuisine':
-            drawSite(pageId, international)
-            break;
+drawSite(pageId, international)
+// function getPageNameFromUrl () {
+//     let pageName ='';
+//     const url = window.location.href;
+//     const urlSplit = url.split('Foodista-project/');
+//     console.log(urlSplit);
+//     const parameterSplit = urlSplit[1].split('.');
+//     pageName = parameterSplit[0]
+//     return pageName;
+// }
+// console.log(pageName)
+// callTheNavNameFromURl()
+// function callTheNavNameFromURl() {
+//     const page = pageName;
+//     switch (page) {
+//         case 'internationalCuisine':
+//             drawSite(pageId, international)
+//             break;
     
-        case 'pasta':
-            drawSite(pageId, pasta)
-            break;
-    }
-}
+//         case 'pasta':
+//             drawSite(pageId, pasta)
+//             break;
+//     }
+// }
 // Selecting and seperating the pageId from the other parameters in the Url
 function getPageIdFromUrl() {
     let pageId = 0;
@@ -66,19 +68,19 @@ function drawSite(pageId, page) {
     // Calling the recipes by the pageId
     getRecipesByTags(pageId, page)
     console.log(pageId);
-    drawSubNav(pageId, page)
+    drawSubNav(pageId)
 }
 // Drawing the Sub-navigation
-function drawSubNav(currentPageId, page) {
+function drawSubNav(currentPageId) {
     let navString = '<ul class="flex">'
-    for(let i = 0; i < page.length; i++) {
-        if(page[i].metaData.name) {
+    for(let i = 0; i < international.length; i++) {
+        if(international[i].metaData.name) {
             let activePage = '';
-            if(page[i].id == currentPageId) {
+            if(international[i].id == currentPageId) {
                 page = 'id="active"';
             }
             navString += `
-                <a class="btn btn-sub-nav" href="?pageId=${page[i].id}" ${activePage}>${page[i].metaData.name}</a>
+                <a class="btn btn-sub-nav" href="?pageId=${international[i].id}" ${activePage}>${international[i].metaData.name}</a>
             `
         }
     }
