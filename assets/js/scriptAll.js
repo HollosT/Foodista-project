@@ -145,8 +145,9 @@ function drawRecipePage(data) {
         </div>
 
         <div class="directons-recipe flex">
-          <h2><span>Directions</span></h2>
-
+            <h2><span>Directions</span></h2>
+        </div>
+        <div class="directions-main flex">
           <div class="ingredients flex">
             <table>
               <h3>Ingredients</h3>

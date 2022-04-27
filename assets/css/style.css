@@ -162,7 +162,7 @@ section:first-child {
 #pasta,
 #article,
 #recipes-placeHolder {
-  gap: 2rem;
+  /* gap: 2rem; */
   justify-content: center;
 }
 
@@ -300,12 +300,45 @@ section > img {
   justify-content: left;
 }
 
-.single-recipe-div1 img {
-  width: 40rem;
+.single-recipe-div1 img article {
+  width: 80rem;
   height: 25rem;
 }
 
 .recipe-test {
   /* flex-direction: row; */
   display: inline-block;
+}
+
+.directions-main {
+  flex-direction: row;
+  justify-content: right;
+  gap: 5vw;
+}
+
+.directons-recipe {
+  flex-direction: column;
+  margin-top: 10vw;
+}
+
+.ingredients {
+  flex-direction: column;
+  background-color: var(--dark-brown);
+  height: fit-content;
+}
+
+.ingredients h3,
+.ingredients ul {
+  margin-bottom: 2vw;
+  list-style: none;
+}
+
+.ingredients ul > li {
+  margin-bottom: 2vw;
+}
+
+.steps {
+  flex-direction: column;
+  width: 50%;
+  gap: 1vw;
 }
