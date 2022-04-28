@@ -164,7 +164,7 @@ function drawRecipes(data) {
             content += `
             <article>
             <a href="?pageId=${data[i].id}">
-            <img src="${data[i].acf.introduction.image}" alt="">
+            <img src="${data[i].acf.introduction.image}" alt="" class="teaser-img">
             <h4>${data[i].acf.introduction.name}</h4>
             <p>${data[i].acf.introduction.teaser}</p>
             </a>
@@ -182,7 +182,7 @@ function drawRecipePage(data) {
         <a href="${recipe.metadata.link_for_creator}" target="_blank"><cite>Author: ${recipe.metadata.author}</cite></a>
 
         <div class="single-recipe-div1 flex">
-            <img src="${recipe.introduction.image}" alt="${recipe.introduction.name}" />
+            <img src="${recipe.introduction.image}" alt="${recipe.introduction.name}" class="recipe-img-size" />
             <article>
             <h4>About</h4>
             <p>${recipe.metadata.about}</p>
@@ -285,7 +285,7 @@ function drawArtclePage(data) {
         </a>
 
     <div class="single-recipe-div1 flex">
-        <img src="${article.introduction.image}" alt="${article.introduction.name}" />
+        <img src="${article.introduction.image}" alt="${article.introduction.name}" class="recipe-img-size" />
         <article>
             <h4>Introduction</h4>
             <p>${article.metadata.about}</p>

@@ -392,3 +392,13 @@ footer div {
   flex-direction: column;
 }
 
+/*Marek playing around with the pictures*/
+.recipe-img-size{
+  width: 40vw;
+  height: 40vh;
+}
+
+.teaser-img{
+  width: 20vw;
+  height: 28vh;
+}
