@@ -231,7 +231,7 @@ function drawRecipePage(data) {
                         </div>
                     </div>
      
-      <div class="img-wrapper"><a href="internationalCuisine.html" class="btn">Back to the category</a></div>
+      <div class="img-wrapper"><a href="${pageName}.html" class="btn">Back to the category</a></div>
     </div>
     `;
     drawHtml('#recipes-placeHolder', content)
@@ -314,7 +314,7 @@ function drawArtclePage(data) {
     </div>
 
     <div class="img-wrapper">
-        <a href="internationalCuisine.html" class="btn">Back to the category</a>
+        <a href="article.html" class="btn">Back to the category</a>
     </div>
     </div>
         `;
