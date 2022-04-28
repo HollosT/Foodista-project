@@ -307,7 +307,7 @@ function drawArtclePage(data) {
     </div>
 
     <div class="directions-main flex">
-        <div class="ingredients flex margin">
+        <div class="article-div flex">
             ${headingsAndParagraph(data)}
             <p></p>
         </div>
@@ -337,8 +337,8 @@ function headingsAndParagraph(data) {
         else {
             headers += `
             <h3>${headingsItem[i]}</h3>
-            <hr></hr>
             <p>${paragraphItmes[i]}</p>
+            <hr></hr>
         `
         }
     }

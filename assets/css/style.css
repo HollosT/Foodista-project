@@ -441,7 +441,7 @@ footer div {
 
 /*Pictures for - teasers and single recipe page*/      
 .recipe-img-size{
-  width: 40vw;
+  width: auto;
   height: 40vh;
 }
 
@@ -470,18 +470,19 @@ line-height: 3vw;
   height: 65vh;
 }
 
-/*Margin on article heading*/
-.margin {
-  margin-top: 5vw;
+
+.article-div {
+  box-shadow: none;
+  background-color: white;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-.margin > h3{
-  margin-bottom: -0.1vw;
-  margin-top: 1.7vw;
+.article-div p {
+  font-size: 1rem;
 }
 
-.margin > p{
-  font-size: 1vw;
-  line-height: 1.5vw;
-  margin-top: 0.5vw;
+.article-div h3 {
+  color: var(--brown);
+  font-size: 1.5rem;
 }
