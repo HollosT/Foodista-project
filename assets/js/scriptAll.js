@@ -305,7 +305,7 @@ function drawArtclePage(data) {
     </div>
 
     <div class="directions-main flex">
-        <div class="ingredients flex">
+        <div class="ingredients flex margin">
             ${headingsAndParagraph(data)}
             <p></p>
         </div>

@@ -468,3 +468,15 @@ line-height: 3vw;
   width: 55vw;
   height: 65vh;
 }
+
+/*Margin on article heading*/
+.margin > h3{
+  margin-bottom: -0.1vw;
+  margin-top: 1.7vw;
+}
+
+.margin > p{
+  font-size: 1vw;
+  line-height: 1.5vw;
+  margin-top: 0.5vw;
+}
