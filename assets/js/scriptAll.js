@@ -292,7 +292,7 @@ function drawArtclePage(data) {
             <h4>Introduction</h4>
             <p>${article.metadata.about}</p>
             <div class="share">
-                <p>Do you like this recipe? Share it!</p>
+                <p>Do you like this article? Share it!</p>
                 <div class="flex">
                     <i class="fa-brands fa-twitter"></i>
                     <i class="fa-brands fa-facebook"></i>
