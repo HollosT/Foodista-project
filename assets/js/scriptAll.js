@@ -22,12 +22,34 @@ function callTheNavNameFromURl() {
     const page = pageName;
     switch (page) {
         case 'internationalCuisine':
-            drawSite(pageId, international)
+            drawSite(pageId, international);
             break;
 
         case 'pasta':
-            drawSite(pageId, pasta)
+            drawSite(pageId, pasta);
             break;
+
+        case 'seasonal':
+            drawSite(pageId, seasonal);
+        break;
+
+        case 'soup':
+            drawSite(pageId, soup);
+        break;
+
+        case 'guestHosting':
+            drawSite(pageId, guestHosting);
+        break;
+
+        case 'dessert':
+            drawSite(pageId, desserts);
+        break;
+
+        case 'article':
+            drawSite(pageId, article);
+        break;
+
+
     }
 }
 // Selecting and seperating the pageId from the other parameters in the Url
@@ -69,24 +91,43 @@ function drawSite(pageId, page) {
     // Calling the recipes by the pageId
     getRecipesByTags(pageId, page)
     console.log(pageId);
-    drawSubNav(pageId)
+    drawSubNav(pageId, page)
+    drawEmptyMsg(page)
 }
 // Drawing the Sub-navigation
-function drawSubNav(currentPageId) {
-    let navString = '<ul class="flex">'
-    for (let i = 0; i < international.length; i++) {
-        if (international[i].metaData.name) {
-            let activePage = '';
-            if (international[i].id == currentPageId) {
-                page = 'id="active"';
+function drawSubNav(currentPageId, page) {
+    if(page.length > 1) {
+        let navString = '<ul class="flex">'
+        for (let i = 0; i < page.length; i++) {
+            if (page[i].metaData.name) {
+                let activePage = '';
+                if (page[i].id == currentPageId) {
+                    activePage = 'id="active"';
+                }
+                navString += `
+                    <a class="btn btn-sub-nav" href="?pageId=${page[i].id}" ${activePage}>${page[i].metaData.name}</a>
+                `
             }
-            navString += `
-                <a class="btn btn-sub-nav" href="?pageId=${international[i].id}" ${activePage}>${international[i].metaData.name}</a>
-            `
+        }
+        navString += '</ul>'
+        drawHtml('#sub-nav', navString);
+
+    }
+}
+
+// When there is no recipes in the category
+
+function drawEmptyMsg(page) {
+    for(let i = 0; i < page.length; i++) {
+        if (page[i].metaData.empty) {
+            const content = `
+                <p> Unfortunately, we cannot find any related recipes in this topic<br />
+                 Try a little bit later on!</p>
+            `;
+            
+            drawHtml('#recipes-placeHolder', content)
         }
     }
-    navString += '</ul>'
-    drawHtml('#sub-nav', navString);
 }
 
 // calling the Recipe by tags
@@ -106,25 +147,30 @@ function getRecipeById(pageId) {
     fetch(`https://marekfurik.com/wp-json/wp/v2/posts/${pageId}`)
         .then((response) => response.json())
         .then((data) => {
-            console.log(data);
-            drawRecipePage(data)
+                if (data.id < 268 && data.id > 100) {
+                    console.log(data);
+                    drawRecipePage(data)
+                } else {
+                    drawArtclePage(data);
+
+                }
         });
 
 }
 function drawRecipes(data) {
-    let content = ''
-    for (let i = 0; i < data.length; i++) {
-        content += `
-        <article>
-        <a href="?pageId=${data[i].id}">
-        <img src="${data[i].acf.introduction.image}" alt="">
-        <h4>${data[i].acf.introduction.name}</h4>
-        <p>${data[i].acf.introduction.teaser}</p>
-        </a>
-        </article>
-        `;
-        drawHtml('#recipes-placeHolder', content)
-    }
+        let content = ''
+        for (let i = 0; i < data.length; i++) {
+            content += `
+            <article>
+            <a href="?pageId=${data[i].id}">
+            <img src="${data[i].acf.introduction.image}" alt="">
+            <h4>${data[i].acf.introduction.name}</h4>
+            <p>${data[i].acf.introduction.teaser}</p>
+            </a>
+            </article>
+            `;
+            drawHtml('#recipes-placeHolder', content)
+        }
 }
 
 function drawRecipePage(data) {
@@ -224,6 +270,75 @@ function steps(data) {
 
     return steps;
 }
+
+
+// Drawing each Article page
+function drawArtclePage(data) {
+    console.log(data.acf);
+    const article = data.acf;
+    const articleContent = `
+    <div class="flex recipe-test">
+        <h1>${article.introduction.name}</h1>
+        <a href="${article.metadata.link_for_creator}" target="_blank"> 
+            <cite>Author: ${article.metadata.author}</cite>
+        </a>
+
+    <div class="single-recipe-div1 flex">
+        <img src="${article.introduction.image}" alt="${article.introduction.name}" />
+        <article>
+            <h4>Introduction</h4>
+            <p>${article.metadata.about}</p>
+            <div class="share">
+                <p>Do you like this recipe? Share it!</p>
+                <div class="flex">
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <div class="directions-main flex">
+        <div class="ingredients flex">
+            ${headingsAndParagraph(data)}
+            <p></p>
+        </div>
+    </div>
+
+    <div class="img-wrapper">
+        <a href="internationalCuisine.html" class="btn">Back to the category</a>
+    </div>
+    </div>
+        `;
+    drawHtml('#recipes-placeHolder', articleContent)
+}
+
+function headingsAndParagraph(data) {
+    const headingsItem = Object.values(data.acf.headers);
+    const paragraphItmes = Object.values(data.acf.paragraphs);
+
+    console.log(headingsItem);
+    console.log(paragraphItmes);
+    // removing the undefined element
+
+    let headers;
+    for (let i = 0; i < headingsItem.length && paragraphItmes.length; i++) {
+        if ((headingsItem[i] && paragraphItmes[i] == undefined) || (headingsItem[i] == '' && paragraphItmes[i] == '')) {
+            continue;
+        }
+        else {
+            headers += `
+            <h3>${headingsItem[i]}</h3>
+            <hr></hr>
+            <p>${paragraphItmes[i]}</p>
+        `
+        }
+    }
+    return headers;
+};
+
+
 function drawHtml(elementId, newContent) {
     document.querySelector(elementId).innerHTML = newContent;
 }

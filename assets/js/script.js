@@ -6,29 +6,21 @@ function getInternationalRecipes() {
   fetch("https://marekfurik.com/wp-json/wp/v2/posts?&tags=9")
     .then((response) => response.json())
     .then((data) => {
-      //   Looping through the posts to find all the ACF of the recipes and putting them all in an array
-      let recipes = [];
-      for (let i = 0; i < data.length; i++) {
-        if (data[i].acf != -1) {
-          recipes.push(data[i].acf);
-        }
-      }
+      drawInternationalSection(data);
 
-      drawInternationalSection(recipes);
-      console.log(recipes);
     });
 }
 getInternationalRecipes();
 
 // Drawing International Section on the homepage
-function drawInternationalSection(recipes) {
+function drawInternationalSection(data) {
   for (let i = 0; i < 3; i++) {
     let cardInt = `
         <article>
-            <a href="">
-                <img class="recipe-img" src="${recipes[i].introduction.image}" alt="">
-                <h4>${recipes[i].introduction.name}</h4>
-                <p>${recipes[i].introduction.teaser}</p>
+            <a href="?pageId=${data[i].id}">
+                <img class="recipe-img" src="${data[i].acf.introduction.image}" alt="">
+                <h4>${data[i].acf.introduction.name}</h4>
+                <p>${data[i].acf.introduction.teaser}</p>
             </a>
         </article>
         `;
@@ -99,7 +91,7 @@ function drawArticleSection(articles) {
             <div class="flex flex-column article-content">
                 <h3>${articles[1].introduction.name}</h3>
                 <p>${articles[1].introduction.teaser}</p>
-                <a href="" class="btn">All articles</a>
+                <a href="article.html" class="btn">All articles</a>
             </div>
         
         `;
