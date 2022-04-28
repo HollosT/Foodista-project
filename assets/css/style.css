@@ -470,6 +470,10 @@ line-height: 3vw;
 }
 
 /*Margin on article heading*/
+.margin {
+  margin-top: 5vw;
+}
+
 .margin > h3{
   margin-bottom: -0.1vw;
   margin-top: 1.7vw;
