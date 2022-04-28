@@ -86,13 +86,15 @@ function drawSite(pageId, page) {
         }
     } if (pageId >= 100) {
         getRecipeById(pageId);
+    } else {
+        // Calling the recipes by the pageId
+        getRecipesByTags(pageId, page)
+        console.log(pageId);
+        drawSubNav(pageId, page)
+        drawEmptyMsg(page)
     }
-    // Calling the recipes by the pageId
-    getRecipesByTags(pageId, page)
-    console.log(pageId);
-    drawSubNav(pageId, page)
-    drawEmptyMsg(page)
 }
+        
 // Drawing the Sub-navigation
 function drawSubNav(currentPageId, page) {
     if(page.length > 1) {
