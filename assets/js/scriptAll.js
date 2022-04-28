@@ -120,9 +120,11 @@ function drawEmptyMsg(page) {
     for(let i = 0; i < page.length; i++) {
         if (page[i].metaData.empty) {
             const content = `
-                <div class="">
-                <p> Unfortunately, we cannot find any related recipes in this topic<br />
-                 Try a little bit later on!</p>
+                <div class="no-recipe-page">
+                <p class="empty-text"> The recipes pasta-way &#128549; <br/>
+                Unfortunately, we cannot find any related recipes in this topic<br/>
+                </p>
+                 <img src="./assets/pictures/no-recipe.png" alt="https://www.freepik.com/vectors/flat-illustration" id="empty-picture" class="no-recipes">
                 </div>
             `;
             

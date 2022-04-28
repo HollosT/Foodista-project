@@ -18,7 +18,7 @@ function drawInternationalSection(data) {
     let cardInt = `
         <article>
             <a href="?pageId=${data[i].id}">
-                <img class="recipe-img" src="${data[i].acf.introduction.image}" alt="" class="teaser-img">
+                <img class="teaser-img" src="${data[i].acf.introduction.image}" alt="">
                 <h4>${data[i].acf.introduction.name}</h4>
                 <p>${data[i].acf.introduction.teaser}</p>
             </a>
@@ -47,7 +47,7 @@ function drawPastaSection(data) {
     let cardPasta = `
         <article>
             <a href="?pageId=${data[i].id}">
-                <img class="recipe-img" src="${data[i].acf.introduction.image}" alt="">
+                <img class="teaser-img" src="${data[i].acf.introduction.image}" alt="">
                 <h4>${data[i].acf.introduction.name}</h4>
                 <p>${data[i].acf.introduction.teaser}</p>
             </a>
