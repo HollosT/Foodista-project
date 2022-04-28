@@ -288,12 +288,14 @@ function drawArtclePage(data) {
 
     <div class="single-recipe-div1 flex">
         <img src="${article.introduction.image}" alt="${article.introduction.name}" class="recipe-img-size" />
-        <article>
-            <h4>Introduction</h4>
-            <p>${article.metadata.about}</p>
-            <div class="share">
+        <article class="flex articles-intro">
+            <div>
+                <h4>Introduction</h4>
+                <p>${article.metadata.about}</p>
+            </div>
+            <div class="flex share articles-share">
                 <p>Do you like this article? Share it!</p>
-                <div class="flex">
+                <div class="flex articles-social">
                     <i class="fa-brands fa-twitter"></i>
                     <i class="fa-brands fa-facebook"></i>
                     <i class="fa-brands fa-instagram"></i>

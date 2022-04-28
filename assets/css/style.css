@@ -189,6 +189,32 @@ article {
   max-width: 20vw;
 }
 
+.articles-intro {
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.articles-share {
+  align-items: center;
+  padding-bottom: 2vw;
+  gap: 1vw;
+}
+
+.articles-share p {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  width: 70%;
+}
+
+.articles-social {
+  gap: .5avw;
+}
+
+.articles-social i {
+  color: var(--dark-brown);
+}
+
 article:hover {
   transform: scale(1.02);
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
