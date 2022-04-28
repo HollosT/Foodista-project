@@ -1,6 +1,5 @@
 //Addressing all the navigation
 
-
 // Getting pageId from th Url
 // It is based on Dan Høegh  Sem 2, theme 2 - API 1 lecture
 // let pageName = getPageNameFromUrl()
@@ -121,8 +120,10 @@ function drawEmptyMsg(page) {
     for(let i = 0; i < page.length; i++) {
         if (page[i].metaData.empty) {
             const content = `
+                <div class="">
                 <p> Unfortunately, we cannot find any related recipes in this topic<br />
                  Try a little bit later on!</p>
+                </div>
             `;
             
             drawHtml('#recipes-placeHolder', content)
